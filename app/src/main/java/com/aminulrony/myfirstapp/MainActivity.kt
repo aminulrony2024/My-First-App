@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -33,28 +34,14 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Aminul(){
     Column {
-        Row {
-            Greeting("Md Aminul")
-            Greeting("Rony")
-        }
-        Row {
-            Greeting("Rony")
-            Greeting("Md Aminul")
-        }
+        Text("Text is working")
+        OutlinedTextField(value = "outlined text field", onValueChange = {})
     }
-}
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Greetings $name!",
-        modifier = modifier
-    )
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     MyFirstAppTheme {
-        Greeting("Android")
     }
 }
