@@ -41,7 +41,7 @@ fun Aminul(){
         OutlinedTextField(value = "outlined text field", onValueChange = {})
         Row {
             val context = LocalContext.current
-            Button(onClick = {Toast.makeText(context,"Button is clicked", Toast.LENGTH_LONG)}) {
+            Button(onClick = {Toast.makeText(context,"Button is clicked", Toast.LENGTH_LONG).show()}) {
                 Text("Submit")
             }
         }
