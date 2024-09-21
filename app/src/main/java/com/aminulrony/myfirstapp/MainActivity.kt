@@ -3,6 +3,8 @@ package com.aminulrony.myfirstapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -22,13 +24,25 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Md Aminul Islam Rony")
+                    Aminul()
                 }
             }
         }
     }
 }
-
+@Composable
+fun Aminul(){
+    Column {
+        Row {
+            Greeting("Md Aminul")
+            Greeting("Rony")
+        }
+        Row {
+            Greeting("Rony")
+            Greeting("Md Aminul")
+        }
+    }
+}
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
