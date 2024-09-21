@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
@@ -36,12 +37,17 @@ fun Aminul(){
     Column {
         Text("Text is working")
         OutlinedTextField(value = "outlined text field", onValueChange = {})
+        Row {
+            Button(onClick = {}) {
+                Text("Submit")
+            }
+        }
     }
 }
 
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun AminulPreview(){
-    
+    Aminul()
 }
