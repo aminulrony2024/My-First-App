@@ -39,9 +39,9 @@ fun Aminul(){
     }
 }
 
-@Preview(showBackground = true)
+
+@Preview
 @Composable
-fun GreetingPreview() {
-    MyFirstAppTheme {
-    }
+fun AminulPreview(){
+    
 }
