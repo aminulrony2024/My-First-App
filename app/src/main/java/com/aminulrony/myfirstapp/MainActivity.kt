@@ -3,6 +3,7 @@ package com.aminulrony.myfirstapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -38,14 +39,23 @@ class MainActivity : ComponentActivity() {
 }
 @Composable
 fun Aminul(){
-    Column {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center
+    ) {
         Text("Text is working")
         OutlinedTextField(value = "outlined text field", onValueChange = {})
         Row{
             Box {
                 Button(onClick = {}) {
                     Text("Select")
-                    Icon(Icons.Default.ArrowDropDown, contentDescription = "")
+                    Icon(Icons.Default.ArrowDropDown, contentDescription = "Select the button")
+                }
+            }
+            Box {
+                Button(onClick = {}) {
+                    Text("Select")
+                    Icon(Icons.Default.ArrowDropDown, contentDescription = "Select the button")
                 }
             }
         }
