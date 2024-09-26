@@ -60,14 +60,21 @@ fun Aminul(){
                     Text("Select")
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "Select the button")
                 }
-                DropdownMenu(expanded = true, onDismissRequest = {}) {
+                DropdownMenu(expanded = false, onDismissRequest = {}) {
                     DropdownMenuItem(text = { Text("Aminul")}, onClick = {})
+                    DropdownMenuItem(text = { Text("Islam")}, onClick = {})
+                    DropdownMenuItem(text={Text("Rony")}, onClick = {})
                 }
             }
             Box {
                 Button(onClick = {}) {
                     Text("Select")
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "Select the button")
+                }
+                DropdownMenu(expanded = false, onDismissRequest = {}) {
+                    DropdownMenuItem(text = { Text("Aminul")}, onClick = {})
+                    DropdownMenuItem(text = { Text("Islam")}, onClick = {})
+                    DropdownMenuItem(text={Text("Rony")}, onClick = {})
                 }
             }
         }
