@@ -14,6 +14,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -59,7 +60,9 @@ fun Aminul(){
                     Text("Select")
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "Select the button")
                 }
-                DropdownMenu(expanded = true, onDismissRequest = {}) { }
+                DropdownMenu(expanded = true, onDismissRequest = {}) {
+                    DropdownMenuItem(text = { Text("Aminul")}, onClick = {})
+                }
             }
             Box {
                 Button(onClick = {}) {
