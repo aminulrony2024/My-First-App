@@ -23,6 +23,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableDoubleStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -53,6 +54,10 @@ fun Aminul(){
     var inputValue by remember { mutableStateOf("")}
     var outputValue by remember { mutableStateOf("")}
     var inputUnit by remember { mutableStateOf("Centimeter")}
+    var outputUnit by remember { mutableStateOf("Meter")}
+    var iExpanded by remember { mutableStateOf(false)}
+    var oExpanded by remember { mutableStateOf(false)}
+    val conversionFactor = remember { mutableDoubleStateOf(0.01) }
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -60,15 +65,18 @@ fun Aminul(){
     ) {
         Text("Text is working")
         Spacer(modifier = Modifier.height(16.dp))
-        OutlinedTextField(value = "outlined text field", onValueChange = {})
+        OutlinedTextField(value = inputValue, onValueChange = {
+            inputValue = it
+        })
         Spacer(modifier = Modifier.height(16.dp))
+        Text(inputValue)
         Row{
             Box {
                 Button(onClick = {}) {
                     Text("Select")
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "Select the button")
                 }
-                DropdownMenu(expanded = true, onDismissRequest = {}) {
+                DropdownMenu(expanded = false, onDismissRequest = {}) {
                     DropdownMenuItem(text = { Text("Aminul")}, onClick = {})
                     DropdownMenuItem(text = { Text("Islam")}, onClick = {})
                     DropdownMenuItem(text={Text("Rony")}, onClick = {})
@@ -80,7 +88,7 @@ fun Aminul(){
                     Text("Select")
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "Select the button")
                 }
-                DropdownMenu(expanded = true, onDismissRequest = {}) {
+                DropdownMenu(expanded = false, onDismissRequest = {}) {
                     DropdownMenuItem(text = { Text("Aminul")}, onClick = {})
                     DropdownMenuItem(text = { Text("Islam")}, onClick = {})
                     DropdownMenuItem(text={Text("Rony")}, onClick = {})
