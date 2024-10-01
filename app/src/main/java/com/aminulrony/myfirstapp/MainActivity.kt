@@ -72,11 +72,11 @@ fun Aminul(){
         Row{
             Box {
                 //Input Button
-                Button(onClick = {}) {
+                Button(onClick = {iExpanded = true}) {
                     Text("Select")
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "Select the button")
                 }
-                DropdownMenu(expanded = false, onDismissRequest = {}) {
+                DropdownMenu(expanded = iExpanded, onDismissRequest = {iExpanded = false}) {
                     DropdownMenuItem(text = { Text("Aminul")}, onClick = {})
                     DropdownMenuItem(text = { Text("Islam")}, onClick = {})
                     DropdownMenuItem(text={Text("Rony")}, onClick = {})
@@ -89,7 +89,7 @@ fun Aminul(){
                     Text("Select")
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "Select the button")
                 }
-                DropdownMenu(expanded = oExpanded, onDismissRequest = {}) {
+                DropdownMenu(expanded = oExpanded, onDismissRequest = {oExpanded = false}) {
                     DropdownMenuItem(text = { Text("Aminul")}, onClick = {})
                     DropdownMenuItem(text = { Text("Islam")}, onClick = {})
                     DropdownMenuItem(text={Text("Rony")}, onClick = {})
