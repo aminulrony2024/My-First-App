@@ -71,6 +71,7 @@ fun Aminul(){
         Spacer(modifier = Modifier.height(16.dp))
         Row{
             Box {
+                //Input Button
                 Button(onClick = {}) {
                     Text("Select")
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "Select the button")
@@ -82,12 +83,13 @@ fun Aminul(){
                 }
             }
             Spacer(modifier = Modifier.width(16.dp))
+            //Output Button
             Box {
-                Button(onClick = {}) {
+                Button(onClick = { oExpanded = true}) {
                     Text("Select")
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "Select the button")
                 }
-                DropdownMenu(expanded = false, onDismissRequest = {}) {
+                DropdownMenu(expanded = oExpanded, onDismissRequest = {}) {
                     DropdownMenuItem(text = { Text("Aminul")}, onClick = {})
                     DropdownMenuItem(text = { Text("Islam")}, onClick = {})
                     DropdownMenuItem(text={Text("Rony")}, onClick = {})
