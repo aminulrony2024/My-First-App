@@ -67,9 +67,8 @@ fun Aminul(){
         Spacer(modifier = Modifier.height(16.dp))
         OutlinedTextField(value = inputValue, onValueChange = {
             inputValue = it
-        })
+        },label = { Text("Enter value :")})
         Spacer(modifier = Modifier.height(16.dp))
-        Text(inputValue)
         Row{
             Box {
                 Button(onClick = {}) {
