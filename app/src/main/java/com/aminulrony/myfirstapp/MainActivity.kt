@@ -77,9 +77,18 @@ fun Aminul(){
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "Select the button")
                 }
                 DropdownMenu(expanded = iExpanded, onDismissRequest = {iExpanded = false}) {
-                    DropdownMenuItem(text = { Text("Aminul")}, onClick = {})
-                    DropdownMenuItem(text = { Text("Islam")}, onClick = {})
-                    DropdownMenuItem(text={Text("Rony")}, onClick = {})
+                    DropdownMenuItem(text = { Text("Centimeter")}, onClick = {
+                        iExpanded = false
+                    })
+                    DropdownMenuItem(text = { Text("Meter")}, onClick = {
+                        iExpanded = false
+                    })
+                    DropdownMenuItem(text={Text("Feet")}, onClick = {
+                        iExpanded =false
+                    })
+                    DropdownMenuItem(text={Text("Milimeter")}, onClick = {
+                        iExpanded = false
+                    })
                 }
             }
             Spacer(modifier = Modifier.width(16.dp))
@@ -90,9 +99,18 @@ fun Aminul(){
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "Select the button")
                 }
                 DropdownMenu(expanded = oExpanded, onDismissRequest = {oExpanded = false}) {
-                    DropdownMenuItem(text = { Text("Aminul")}, onClick = {})
-                    DropdownMenuItem(text = { Text("Islam")}, onClick = {})
-                    DropdownMenuItem(text={Text("Rony")}, onClick = {})
+                    DropdownMenuItem(text = { Text("Centimeter")}, onClick = {
+                        oExpanded = false
+                    })
+                    DropdownMenuItem(text = { Text("Meter")}, onClick = {
+                        oExpanded = false
+                    })
+                    DropdownMenuItem(text={Text("Feet")}, onClick = {
+                        oExpanded = false
+                    })
+                    DropdownMenuItem(text={Text("Milimeter")}, onClick = {
+                        oExpanded = false
+                    })
                 }
             }
         }
