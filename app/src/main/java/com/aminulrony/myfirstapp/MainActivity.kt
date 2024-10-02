@@ -65,7 +65,7 @@ fun Aminul(){
         // ?: elvis operator
         val inputValueDouble = inputValue.toDoubleOrNull()?: 0.0
         val result = (inputValueDouble * conversionFactor.doubleValue * 100.0).roundToInt() / 100.0
-        val outputValue = result.toString()
+        outputValue = result.toString()
     }
 
     Column(
@@ -91,15 +91,25 @@ fun Aminul(){
                         iExpanded = false
                         inputUnit = "Centimeter"
                         conversionFactor.doubleValue = 0.01
+                        convertUnit()
                     })
                     DropdownMenuItem(text = { Text("Meter")}, onClick = {
                         iExpanded = false
+                        inputUnit = "Meter"
+                        conversionFactor.doubleValue = 1.0
+                        convertUnit()
                     })
                     DropdownMenuItem(text={Text("Feet")}, onClick = {
                         iExpanded =false
+                        inputUnit = "Feet"
+                        conversionFactor.doubleValue = 0.3048
+                        convertUnit()
                     })
                     DropdownMenuItem(text={Text("Milimeter")}, onClick = {
                         iExpanded = false
+                        inputUnit = "Milimeter"
+                        conversionFactor.doubleValue = 0.001
+                        convertUnit()
                     })
                 }
             }
