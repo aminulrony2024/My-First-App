@@ -54,14 +54,14 @@ class MainActivity : ComponentActivity() {
 fun Aminul(){
     var inputValue by remember { mutableStateOf("")}
     var outputValue by remember { mutableStateOf("")}
-    var inputUnit by remember { mutableStateOf("Centimeter")}
+    var inputUnit by remember { mutableStateOf("Meter")}
     var outputUnit by remember { mutableStateOf("Meter")}
     var iExpanded by remember { mutableStateOf(false)}
     var oExpanded by remember { mutableStateOf(false)}
-    val conversionFactor = remember { mutableDoubleStateOf(0.01) }
-    val oConversionFactor = remember { mutableDoubleStateOf(0.01) }
+    val conversionFactor = remember { mutableDoubleStateOf(1.0) }
+    val oConversionFactor = remember { mutableDoubleStateOf(1.0) }
     fun convertUnit()
-    {
+    {00
         // ?: elvis operator
         val inputValueDouble = inputValue.toDoubleOrNull()?: 0.0
         val result = (inputValueDouble * conversionFactor.doubleValue * 100.0 / oConversionFactor.doubleValue).roundToInt() / 100.0
@@ -77,13 +77,14 @@ fun Aminul(){
         Spacer(modifier = Modifier.height(16.dp))
         OutlinedTextField(value = inputValue, onValueChange = {
             inputValue = it
+            convertUnit()
         },label = { Text("Enter value :")})
         Spacer(modifier = Modifier.height(16.dp))
         Row{
             Box {
                 //Input Button
                 Button(onClick = {iExpanded = true}) {
-                    Text("Select")
+                    Text(text = inputUnit)
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "Select the button")
                 }
                 DropdownMenu(expanded = iExpanded, onDismissRequest = {iExpanded = false}) {
@@ -117,37 +118,38 @@ fun Aminul(){
             //Output Button
             Box {
                 Button(onClick = { oExpanded = true}) {
-                    Text("Select")
+                    Text(text = outputUnit)
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "Select the button")
                 }
                 DropdownMenu(expanded = oExpanded, onDismissRequest = {oExpanded = false}) {
                     DropdownMenuItem(text = { Text("Centimeter")}, onClick = {
                         oExpanded = false
                         outputUnit = "Centimeter"
-                        conversionFactor.doubleValue = 0.01
+                        oConversionFactor.doubleValue = 0.01
                         convertUnit()
                     })
                     DropdownMenuItem(text = { Text("Meter")}, onClick = {
                         oExpanded = false
                         outputUnit = "Meter"
-                        conversionFactor.doubleValue = 1.0
+                        oConversionFactor.doubleValue = 1.0
                         convertUnit()
                     })
                     DropdownMenuItem(text={Text("Feet")}, onClick = {
                         oExpanded = false
                         outputUnit = "Feet"
-                        conversionFactor.doubleValue = 0.3048
+                        oConversionFactor.doubleValue = 0.3048
                         convertUnit()
                     })
                     DropdownMenuItem(text={Text("Milimeter")}, onClick = {
                         oExpanded = false
                         outputUnit = "Milimeter"
-                        conversionFactor.doubleValue = 0.001
+                        oConversionFactor.doubleValue = 0.001
                         convertUnit()
                     })
                 }
             }
         }
+        Text(text = "Result : $outputValue")
     }
 }
 
