@@ -61,7 +61,7 @@ fun Aminul(){
     val conversionFactor = remember { mutableDoubleStateOf(1.0) }
     val oConversionFactor = remember { mutableDoubleStateOf(1.0) }
     fun convertUnit()
-    {00
+    {
         // ?: elvis operator
         val inputValueDouble = inputValue.toDoubleOrNull()?: 0.0
         val result = (inputValueDouble * conversionFactor.doubleValue * 100.0 / oConversionFactor.doubleValue).roundToInt() / 100.0
@@ -149,7 +149,7 @@ fun Aminul(){
                 }
             }
         }
-        Text(text = "Result : $outputValue")
+        Text(text = "Result : $outputValue $outputUnit", style = MaterialTheme.typography.headlineMedium)
     }
 }
 
