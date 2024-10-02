@@ -32,6 +32,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.aminulrony.myfirstapp.ui.theme.MyFirstAppTheme
+import kotlin.math.roundToInt
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,12 +59,21 @@ fun Aminul(){
     var iExpanded by remember { mutableStateOf(false)}
     var oExpanded by remember { mutableStateOf(false)}
     val conversionFactor = remember { mutableDoubleStateOf(0.01) }
+
+    fun convertUnit()
+    {
+        // ?: elvis operator
+        val inputValueDouble = inputValue.toDoubleOrNull()?: 0.0
+        val result = (inputValueDouble * conversionFactor.doubleValue * 100.0).roundToInt() / 100.0
+        val outputValue = result.toString()
+    }
+
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("Text is working")
+        Text("Unit Converter")
         Spacer(modifier = Modifier.height(16.dp))
         OutlinedTextField(value = inputValue, onValueChange = {
             inputValue = it
@@ -79,6 +89,8 @@ fun Aminul(){
                 DropdownMenu(expanded = iExpanded, onDismissRequest = {iExpanded = false}) {
                     DropdownMenuItem(text = { Text("Centimeter")}, onClick = {
                         iExpanded = false
+                        inputUnit = "Centimeter"
+                        conversionFactor.doubleValue = 0.01
                     })
                     DropdownMenuItem(text = { Text("Meter")}, onClick = {
                         iExpanded = false
