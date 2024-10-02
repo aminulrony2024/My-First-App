@@ -59,12 +59,12 @@ fun Aminul(){
     var iExpanded by remember { mutableStateOf(false)}
     var oExpanded by remember { mutableStateOf(false)}
     val conversionFactor = remember { mutableDoubleStateOf(0.01) }
-
+    val oConversionFactor = remember { mutableDoubleStateOf(0.01) }
     fun convertUnit()
     {
         // ?: elvis operator
         val inputValueDouble = inputValue.toDoubleOrNull()?: 0.0
-        val result = (inputValueDouble * conversionFactor.doubleValue * 100.0).roundToInt() / 100.0
+        val result = (inputValueDouble * conversionFactor.doubleValue * 100.0 / oConversionFactor.doubleValue).roundToInt() / 100.0
         outputValue = result.toString()
     }
 
@@ -123,15 +123,27 @@ fun Aminul(){
                 DropdownMenu(expanded = oExpanded, onDismissRequest = {oExpanded = false}) {
                     DropdownMenuItem(text = { Text("Centimeter")}, onClick = {
                         oExpanded = false
+                        outputUnit = "Centimeter"
+                        conversionFactor.doubleValue = 0.01
+                        convertUnit()
                     })
                     DropdownMenuItem(text = { Text("Meter")}, onClick = {
                         oExpanded = false
+                        outputUnit = "Meter"
+                        conversionFactor.doubleValue = 1.0
+                        convertUnit()
                     })
                     DropdownMenuItem(text={Text("Feet")}, onClick = {
                         oExpanded = false
+                        outputUnit = "Feet"
+                        conversionFactor.doubleValue = 0.3048
+                        convertUnit()
                     })
                     DropdownMenuItem(text={Text("Milimeter")}, onClick = {
                         oExpanded = false
+                        outputUnit = "Milimeter"
+                        conversionFactor.doubleValue = 0.001
+                        convertUnit()
                     })
                 }
             }
